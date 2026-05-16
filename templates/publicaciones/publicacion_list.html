@@ -1,24 +1,16 @@
-<!-- 
-    TODO: Completar el template de listado de publicaciones.
+{% extends "base.html" %}
 
-    Requisitos:
-    - Extender base.html
-    - Sobreescribir {% block content %}
-    - Dentro del bloque:
-        - Un título de sección (<h1> o <h2>)
-        - Recorrer la lista con {% for pub in publicacion_list %}
-        - Por cada publicación mostrar:
-            - Título ({{ pub.titulo }})
-            - Autor ({{ pub.autor }})
-            - Fecha de publicación ({{ pub.fecha_publicacion }})
-            - Un link al detalle usando {% url 'publicaciones:detalle_publicacion' pub.pk %}
-        - Cerrar con {% endfor %}
-        - Si no hay publicaciones, usar {% empty %} dentro del for para mostrar un mensaje
-
-    Pista para el {% empty %}:
+{% block content %}
+    <h2>Todas las publicaciones</h2>
+    
+    <ul>
         {% for pub in publicacion_list %}
-            ...
+            <li>
+                <strong>{{ pub.titulo }}</strong> - Autor: {{ pub.autor }} ({{ pub.fecha_publicacion }})
+                <a href="{% url 'publicaciones:detalle_publicacion' pub.pk %}">Ver detalle</a>
+            </li>
         {% empty %}
-            <p>No hay publicaciones disponibles aún.</p>
+            <p>No hay publicaciones disponibles aun.</p>
         {% endfor %}
--->
+    </ul>
+{% endblock %}
