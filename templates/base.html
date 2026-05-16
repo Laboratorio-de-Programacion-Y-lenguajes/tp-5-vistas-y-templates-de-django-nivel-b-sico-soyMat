@@ -1,20 +1,28 @@
-<!-- 
-    TODO: Completar el template base del portal.
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Publicaciones</title>
+</head>
+<body>
+    <header>
+        <h1>Portal de Publicaciones</h1>
+        <nav>
+            <!-- Navegacion principal del sitio -->
+            <a href="{% url 'publicaciones:inicio' %}">Inicio</a> | 
+            <a href="{% url 'publicaciones:lista_publicaciones' %}">Publicaciones</a>
+        </nav>
+    </header>
 
-    Requisitos:
-    - Estructura HTML5 válida (<!DOCTYPE html>, <html>, <head>, <body>)
-    - En <title>: mostrar el nombre del sitio (podés hardcodearlo o usar una variable)
-    - Un <header> visible con el nombre del portal
-    - Una navegación (<nav>) con dos links:
-        - Inicio → {% url 'publicaciones:inicio' %}
-        - Publicaciones → {% url 'publicaciones:lista_publicaciones' %}
-    - Un bloque de contenido para que los templates hijos inserten su HTML:
-        {% block content %}{% endblock %}
-    - Un <footer> simple (puede ser solo un texto)
+    <main>
+        <!-- Aca insertan contenido los templates hijos -->
+        {% block content %}
+        {% endblock %}
+    </main>
 
-    Pista para el bloque de contenido:
-        <main>
-            {% block content %}
-            {% endblock %}
-        </main>
--->
+    <footer>
+        <p>Trabajo Practico 5 - Django Basico</p>
+    </footer>
+</body>
+</html>
